@@ -3,6 +3,7 @@
 This is my first personal/side project using React.
 It's a memory game with memes, so that's where the name comes from.
 
+[Play](https://ibaiad.github.io/memery/)
 
 ## Technologies
 
