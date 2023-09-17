@@ -39,7 +39,7 @@ export default function App () {
   useEffect(() => { getRecord() }, [record])
 
   return (
-    <div className='bg-slate-900 text-slate-50'>
+    <div className="bg-slate-900 text-slate-50">
       <div className="h-screen max-w-4xl mx-auto">
         <Header
           game={game} timer={timer} startStopGame={startStopGame}

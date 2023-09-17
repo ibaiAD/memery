@@ -20,6 +20,7 @@ export function Card ({ card, index, handleClick, dispatch, blocked }: Props) {
   const rotate = () => {
     if (blocked) return
     if (card.correct) return
+    if (card.rotated) return
 
     dispatch({ type: 'rotateOneCard', payload: index })
     handleClick({ index, id })
@@ -33,7 +34,7 @@ export function Card ({ card, index, handleClick, dispatch, blocked }: Props) {
       </section>
 
       <section style={{ ...cardSideStyles, transform: (card.rotated ?? false) ? 'rotateY(0)' : 'rotateY(180deg)' }} className="card--front h-full w-full absolute flex justify-center bg-slate-700 rounded-xl">
-        <img src={url} alt={name} className='rounded-xl block h-full aspect-auto' />
+        <img src={url} alt={name} className="rounded-xl block h-full aspect-auto" />
       </section>
     </article>
   )

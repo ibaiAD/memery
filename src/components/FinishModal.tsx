@@ -7,13 +7,13 @@ interface Props {
 
 export function FinishModal ({ timer, closeModal }: Props) {
   return (
-    <div className='absolute z-10 bg-slate-900 border-2 rounded-xl w-4/5 max-w-4xl h-3/5 flex flex-col justify-center items-center gap-10 shadow-lg shadow-slate-600 cursor-pointer'
+    <div className="absolute z-10 bg-slate-900 border-2 rounded-xl w-4/5 max-w-4xl h-3/5 flex flex-col justify-center items-center gap-10 shadow-lg shadow-slate-600 cursor-pointer"
       onClick={() => { closeModal(false) }}
     >
-      <span className='text-6xl text-purple-500'>
+      <span className="text-5xl sm:text-6xl text-purple-500">
         FINISH!
       </span>
-      <span className='text-4xl text-white'>
+      <span className="text-3xl sm:text-4xl text-white">
         {renderTime(timer)}
       </span>
     </div>
