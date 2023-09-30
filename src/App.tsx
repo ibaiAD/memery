@@ -1,12 +1,17 @@
-import { useEffect, useState } from 'react'
+import { Suspense, lazy, useEffect, useState } from 'react'
 import confetti from 'canvas-confetti'
 
-import { Board } from './components/Board'
 import { FinishModal } from './components/FinishModal'
 import { Menu } from './components/Menu'
 import { Header } from './components/Header'
 import { useRecord } from './hooks/useRecord'
 import { useTimer } from './hooks/useTimer'
+import { Footer } from './components/Footer'
+import { Spinner } from './components/Spinner'
+
+const Board = lazy(
+  async () => await import('./components/Board').then(module => ({ default: module.Board }))
+)
 
 export default function App () {
   const [game, setGame] = useState(false)
@@ -39,7 +44,7 @@ export default function App () {
   useEffect(() => { getRecord() }, [record])
 
   return (
-    <div className="bg-slate-900 text-slate-50">
+    <div className="text-slate-50">
       <div className="h-screen max-w-4xl mx-auto">
         <Header
           game={game} timer={timer} startStopGame={startStopGame}
@@ -48,7 +53,11 @@ export default function App () {
         <main className="h-5/6 flex justify-center items-center">
           {
             game
-              ? <Board winGame={winGame} />
+              ? <Suspense fallback={
+                <Spinner size='xl' />
+              }>
+                <Board winGame={winGame} />
+              </Suspense>
               : <Menu
                 record={record} startStopGame={startStopGame}
               />
@@ -59,7 +68,7 @@ export default function App () {
             <FinishModal timer={timer} closeModal={setWinner} />
           }
         </main>
-
+        <Footer />
       </div>
     </div>
   )

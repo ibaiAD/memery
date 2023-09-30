@@ -5,15 +5,21 @@ It's a memory game with memes, so that's where the name comes from.
 
 [Play](https://ibaiad.github.io/memery/)
 
+
 ## Technologies
 
 - React
+- TailwindCSS
 - TypeScript
 - Vite
-- TailwindCSS
 
 
 ## External resources
+
+### Confetti
+
+Game finish confetti from [Canvas Confetti](https://github.com/catdad/canvas-confetti)
+
 
 ### Meme API
 

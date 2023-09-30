@@ -32,9 +32,11 @@ const reducer = (state: Meme[], action: Action) => {
   }
 
   if (action.type === 'rotateBackCards') {
-    const newState = state.map(c => {
-      if (!c.correct) c.rotated = false
-      return c
+    const newState = state.map(card => {
+      if (!card.correct) {
+        return { ...card, rotated: false }
+      }
+      return { ...card }
     })
 
     return newState
